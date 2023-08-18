@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useRef, useState } from 'react'
 import styled from 'styled-components'
 import socialLinks from '../constants/social_links'
-import { Seo, Footer, Title } from '../components/'
+import { Seo, Footer, Title, Layout } from '../components/'
 
 const IndexPage = () => {
   const [name, setName] = useState('')
@@ -89,122 +89,124 @@ const IndexPage = () => {
   return (
     <>
       <Seo Sitetitle='Home' />
-      <Wrapper id='contact' className='contact-wrapper'>
-        <Title title='Contact Me' />
-        <div className='info'>
-          <article className='contact-form'>
-            <div className='contact-divider contact-info'>
-              <p>Hi! Hola! Oi!</p>
-              <p>
-                Do you have a question? Or want to collaborate on a project? Or
-                want to say hi? I'm here to help.{' '}
-              </p>
-              <p>
-                You can contact me using the form or any of the links below.
-              </p>
-              <div className='social-icons'>
-                {socialLinks.map((link, index) => {
-                  return (
-                    <div key={link.id} className='social-links'>
-                      <a
-                        aria-label={link.aria || 'social media icons'}
-                        href={link.url}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='social-link'
-                      >
-                        {link.icon}
-                        <span className='icon-name'>{link.name}</span>
-                      </a>
+      <Layout>
+        <Wrapper id='contact' className='contact-wrapper'>
+          <Title title='Contact Me' />
+          <div className='info'>
+            <article className='contact-form'>
+              <div className='contact-divider contact-info'>
+                <p>Hi! Hola! Oi!</p>
+                <p>
+                  Do you have a question? Or want to collaborate on a project?
+                  Or want to say hi? I'm here to help.{' '}
+                </p>
+                <p>
+                  You can contact me using the form or any of the links below.
+                </p>
+                <div className='social-icons'>
+                  {socialLinks.map((link, index) => {
+                    return (
+                      <div key={link.id} className='social-links'>
+                        <a
+                          aria-label={link.aria || 'social media icons'}
+                          href={link.url}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='social-link'
+                        >
+                          {link.icon}
+                          <span className='icon-name'>{link.name}</span>
+                        </a>
+                      </div>
+                    )
+                  })}
+                </div>
+                <p>
+                  {' '}
+                  If you have a specific topic you'd like to discuss, feel free
+                  to include it in your message. I'll do my best to get back to
+                  you soon.
+                </p>
+              </div>
+              <div className='contact-form-wrapper'>
+                <div className='contact-divider'>
+                  <form
+                  // method='POST'
+                  // action='https://formspree.io/f/xjvdyaon'
+                  // ref={formRef}
+                  // onSubmit={handleSubmit}
+                  >
+                    <div className='form-group'>
+                      <label htmlFor='name' className='form-labels'>
+                        Name:{' '}
+                        <input
+                          type='text'
+                          id='name'
+                          name='Name'
+                          placeholder='john doe'
+                          className='form-control'
+                          // value={name}
+                          // onChange={handleChangeName}
+                          // onFocus={handleOnFocus}
+                          // onBlur={handleOnBlur}
+                          autoComplete='name'
+                          required
+                        />
+                      </label>
+
+                      <label htmlFor='email' className='form-labels'>
+                        Email:{' '}
+                        <input
+                          type='email'
+                          id='email'
+                          name='email'
+                          placeholder='johndoe@email.com'
+                          className='form-control'
+                          // value={email}
+                          // onChange={handleChangeEmail}
+                          autoComplete='email'
+                          required
+                        />
+                        {/* {!isValidEmail && (
+                          <span style={{ color: 'red' }}>
+                            Please enter a valid email address
+                          </span>
+                        )} */}
+                      </label>
+
+                      <label htmlFor='message' className='form-labels'>
+                        Message:{' '}
+                        <textarea
+                          id='message'
+                          name='message'
+                          cols='5'
+                          placeholder='Hi, I would love to talk about...'
+                          className='form-control'
+                          rows='3'
+                          // value={message}
+                          // onChange={handleChangeMessage}
+                          autoComplete='off'
+                          required
+                        ></textarea>
+                      </label>
+
+                      {/* {isValidEmail && !isFormEmpty() && (
+                        <button
+                          type='submit'
+                          aria-label='Lets talk contact submit button'
+                          className='submit-btn btn'
+                        >
+                          Let's talk
+                        </button>
+                      )} */}
                     </div>
-                  )
-                })}
+                  </form>
+                </div>
               </div>
-              <p>
-                {' '}
-                If you have a specific topic you'd like to discuss, feel free to
-                include it in your message. I'll do my best to get back to you
-                soon.
-              </p>
-            </div>
-            <div className='contact-form-wrapper'>
-              <div className='contact-divider'>
-                <form
-                  method='POST'
-                  action='https://formspree.io/f/xjvdyaon'
-                  ref={formRef}
-                  onSubmit={handleSubmit}
-                >
-                  <div className='form-group'>
-                    <label htmlFor='name' className='form-labels'>
-                      Name:{' '}
-                      <input
-                        type='text'
-                        id='name'
-                        name='Name'
-                        placeholder='john doe'
-                        className='form-control'
-                        value={name}
-                        onChange={handleChangeName}
-                        onFocus={handleOnFocus}
-                        onBlur={handleOnBlur}
-                        autoComplete='name'
-                        required
-                      />
-                    </label>
-
-                    <label htmlFor='email' className='form-labels'>
-                      Email:{' '}
-                      <input
-                        type='email'
-                        id='email'
-                        name='email'
-                        placeholder='johndoe@email.com'
-                        className='form-control'
-                        value={email}
-                        onChange={handleChangeEmail}
-                        autoComplete='email'
-                        required
-                      />
-                      {!isValidEmail && (
-                        <span style={{ color: 'red' }}>
-                          Please enter a valid email address
-                        </span>
-                      )}
-                    </label>
-
-                    <label htmlFor='message' className='form-labels'>
-                      Message:{' '}
-                      <textarea
-                        id='message'
-                        name='message'
-                        cols='5'
-                        placeholder='Hi, I would love to talk about...'
-                        className='form-control'
-                        rows='3'
-                        value={message}
-                        onChange={handleChangeMessage}
-                        autoComplete='off'
-                        required
-                      ></textarea>
-                    </label>
-
-                    {isValidEmail && !isFormEmpty() && (
-                      <button
-                        type='submit'
-                        aria-label='Lets talk contact submit button'
-                        className='submit-btn btn'
-                      >
-                        Let's talk
-                      </button>
-                    )}
-                  </div>
-                </form>
-              </div>
-            </div>
-          </article>
-        </div>
-      </Wrapper>
+            </article>
+          </div>
+        </Wrapper>
+      </Layout>
       <Footer />
     </>
   )

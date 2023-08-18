@@ -10,5 +10,16 @@ module.exports = {
     image: 'mainBcg.png',
     siteUrl: 'https://kurai-modo.vercel.app',
   },
-  plugins: ['gatsby-plugin-styled-components'],
+  plugins: [
+    'gatsby-plugin-styled-components',
+    {
+      resolve: 'gatsby-plugin-use-dark-mode',
+      options: {
+        classNameDark: 'dark-mode',
+        classNameLight: 'light-mode',
+        storageKey: 'darkMode',
+        minify: true,
+      },
+    },
+  ],
 }

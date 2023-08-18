@@ -4,11 +4,9 @@ import { Link } from 'gatsby'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { FaMoon, FaSun, FaSpinner, FaBars } from 'react-icons/fa'
 import useDarkMode from 'use-dark-mode'
-import { ThemeContext } from './ThemeContext'
 
 const Navbar = ({ toggleSidebar }) => {
-  const { isDark, toggleDarkMode } = useContext(ThemeContext)
-  const { value: isDarkMode, enable, disable } = useDarkMode()
+  const { value: isDark, enable, disable } = useDarkMode()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -17,11 +15,6 @@ const Navbar = ({ toggleSidebar }) => {
 
   if (!mounted) {
     return null
-  }
-
-  const handleThemeToggle = () => {
-    toggleDarkMode()
-    isDarkMode ? disable() : enable()
   }
 
   return (
@@ -62,7 +55,7 @@ const Navbar = ({ toggleSidebar }) => {
             {isDark ? (
               <>
                 <button
-                  onClick={handleThemeToggle}
+                  onClick={disable}
                   title='light theme'
                   className='theme-toggle theme-toggle-icon'
                 >
@@ -80,7 +73,7 @@ const Navbar = ({ toggleSidebar }) => {
             ) : (
               <>
                 <button
-                  onClick={handleThemeToggle}
+                  onClick={enable}
                   title='dark theme'
                   className='theme-toggle theme-toggle-icon'
                 >

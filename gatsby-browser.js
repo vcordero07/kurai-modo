@@ -1,5 +1,7 @@
-import { wrapRootElement as wrapRoot } from './root-wrapper'
-import { wrapPageElement as wrapPage } from './page-wrapper'
+import React from 'react';
 
-export const wrapRootElement = wrapRoot
-// export const wrapPageElement = wrapPage
+import App from './src/components/App';
+
+export const wrapRootElement = ({ element }) => {
+  return <App>{element}</App>;
+};

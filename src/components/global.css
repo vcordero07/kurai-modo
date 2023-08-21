@@ -4,15 +4,17 @@
 }
 
 body.dark-mode {
-  --background: black;
-  --text: white;
-  --primary: hotpink;
+  --background: hsl(0, 0%, 16%);
+  --text: rgb(183, 183, 183);
+  --primary: hsl(224, 33%, 59%);
+  --hover: hsl(225, 46%, 42%);
 }
 
 body.light-mode {
-  --background: white;
-  --text: black;
-  --primary: royalblue;
+  --background: hsl(0, 0%, 100%);
+  --text: hsl(0, 0%, 27%);
+  --primary: hsl(225, 46%, 42%);
+  --hover: hsl(224, 33%, 59%);
 }
 
 body {
@@ -22,4 +24,8 @@ body {
 
 a {
   color: var(--primary);
+}
+
+a:hover {
+  color: var(--hover);
 }

@@ -1,8 +1,8 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-import favicon from "../../static/favicon.ico"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
+import favicon from '../../static/favicon.ico';
 
 function Seo({ description, meta, Sitetitle }) {
   const { site } = useStaticQuery(
@@ -19,15 +19,15 @@ function Seo({ description, meta, Sitetitle }) {
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
-  const imageSE0 = site.siteMetadata.image
+  const metaDescription = description || site.siteMetadata.description;
+  const imageSE0 = site.siteMetadata.image;
 
   return (
     <Helmet
       htmlAttributes={{
-        lang: "en",
+        lang: 'en',
       }}
       title={`${Sitetitle} | ${site.siteMetadata.title}`}
       meta={[
@@ -83,19 +83,19 @@ function Seo({ description, meta, Sitetitle }) {
     >
       <link rel="icon" href={favicon} />
     </Helmet>
-  )
+  );
 }
 
 Seo.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
-}
+};
 
 Seo.propTypes = {
   description: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   Sitetitle: PropTypes.string.isRequired,
-}
+};
 
-export default Seo
+export default Seo;

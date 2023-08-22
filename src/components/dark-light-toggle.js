@@ -1,7 +1,5 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
-import styled from 'styled-components';
-
 import UnstyledButton from './unstyled-button';
 import FadeIn from './fade-in';
 

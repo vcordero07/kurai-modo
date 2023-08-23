@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-
-import DarkLightToggle from './dark-light-toggle';
+import DarkLightToggle from './DarkLightToggle';
 
 const Header = ({ siteTitle }) => (
   <OuterWrapper>

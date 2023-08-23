@@ -11,7 +11,7 @@ export default styled.button`
   font: inherit;
 
   &:focus {
-    outline: 2px auto var(--primary)
+    outline: 2px auto var(--primary);
     outline-offset: 2px;
   }
 

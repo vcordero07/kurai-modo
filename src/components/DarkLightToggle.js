@@ -1,7 +1,7 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
-import UnstyledButton from './unstyled-button';
-import FadeIn from './fade-in';
+import UnstyledButton from './UnstyledButton';
+import FadeIn from './FadeIn';
 
 const DarkLightToggle = () => {
   const { value: isDark, toggle } = useDarkMode();

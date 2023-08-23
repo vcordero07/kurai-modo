@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import '../styles/Layout.css';
+import '../styles/Global.css';
 import Header from './header';
-import './layout.css';
-import './global.css';
 
 const Layout = ({ children }) => {
   return (

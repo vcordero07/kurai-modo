@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import '../styles/Layout.css';
 import '../styles/Global.css';
-import Header from './header';
+import Header from './Header';
 
 const Layout = ({ children }) => {
   return (

@@ -24,6 +24,7 @@ const IndexPage = () => {
               name="name"
               id="name"
               placeholder="john doe"
+              autoComplete="name"
               required
             />
           </label>
@@ -36,6 +37,7 @@ const IndexPage = () => {
               name="email"
               id="email"
               placeholder="johndoe@email.com"
+              autoComplete="email"
               required
             />
           </label>

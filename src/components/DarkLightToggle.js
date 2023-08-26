@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useDarkMode from '@fisch0920/use-dark-mode';
 import UnstyledButton from './UnstyledButton';
-import FadeIn from './FadeIn';
+// import FadeIn from './FadeIn';
 
 const DarkLightToggle = () => {
-  const { value: isDark, toggle } = useDarkMode();
+  const { value: isDark, enable, disable } = useDarkMode();
+
+  useEffect(() => {
+    const storedValue = localStorage.getItem('darkMode');
+    if (storedValue === null) {
+      localStorage.setItem('darkMode', 'false');
+    }
+  }, []);
 
   const isBeingPrebuilt = typeof window === 'undefined';
 
@@ -12,12 +19,27 @@ const DarkLightToggle = () => {
     return null;
   }
 
+  const handleToggle = () => {
+    const userConfirmed = window.confirm('Do you want to toggle dark mode?');
+    if (!userConfirmed) {
+      return;
+    }
+
+    if (isDark) {
+      disable();
+      localStorage.setItem('darkMode', 'false');
+    } else {
+      enable();
+      localStorage.setItem('darkMode', 'true');
+    }
+  };
+
   return (
-    <FadeIn>
-      <UnstyledButton aria-hidden="true" onClick={toggle}>
-        {isDark ? <Moon /> : <Sun />}
-      </UnstyledButton>
-    </FadeIn>
+    // <FadeIn>
+    <UnstyledButton aria-hidden="true" onClick={handleToggle}>
+      {isDark ? <Moon /> : <Sun />}
+    </UnstyledButton>
+    // </FadeIn>
   );
 };
 

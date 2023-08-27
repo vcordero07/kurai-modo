@@ -4,6 +4,29 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 
 const IndexPage = () => {
+  const handleChangeName = (e) => {
+    e.preventDefault();
+    console.log(
+      'darkMode value in handleChangeName:',
+      localStorage.getItem('darkMode')
+    );
+  };
+
+  const handleOnFocus = (e) => {
+    e.preventDefault();
+    console.log(
+      'darkMode value in handleOnFocus:',
+      localStorage.getItem('darkMode')
+    );
+  };
+
+  const handleOnBlur = (e) => {
+    e.preventDefault();
+    console.log(
+      'darkMode value in handleOnBlur:',
+      localStorage.getItem('darkMode')
+    );
+  };
   return (
     <>
       <Seo Sitetitle="Home" />
@@ -25,6 +48,9 @@ const IndexPage = () => {
               id="name"
               placeholder="john doe"
               autoComplete="name"
+              onChange={handleChangeName}
+              onFocus={handleOnFocus}
+              onBlur={handleOnBlur}
               required
             />
           </label>
@@ -38,6 +64,9 @@ const IndexPage = () => {
               id="email"
               placeholder="johndoe@email.com"
               autoComplete="email"
+              onChange={handleChangeName}
+              onFocus={handleOnFocus}
+              onBlur={handleOnBlur}
               required
             />
           </label>
@@ -51,6 +80,9 @@ const IndexPage = () => {
               cols="5"
               rows="3"
               placeholder="Hi, I would like to talk about..."
+              onChange={handleChangeName}
+              onFocus={handleOnFocus}
+              onBlur={handleOnBlur}
               required
             />
           </label>
